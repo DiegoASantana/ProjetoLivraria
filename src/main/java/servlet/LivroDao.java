@@ -60,6 +60,33 @@ public class LivroDao {
 			}
 		}
 		
+		public List<Livro> getMostrar(int codLivro){
+			try {
+				List<Livro> livros = new ArrayList<Livro>();
+				PreparedStatement stmt = this.connection.prepareStatement("select * from tblivros where codlivro ="+codLivro);
+				
+				stmt.execute();
+				ResultSet rs = stmt.executeQuery();
+				
+				while (rs.next()) {
+					Livro livro = new Livro();
+					livro.setCodLivro(rs.getLong("codlivro"));
+					livro.setTitulo(rs.getString("titulo"));
+					livro.setAutor(rs.getString("autor"));
+					livro.setCategora(rs.getString("categoria"));
+					livro.setValor(rs.getFloat("valor"));
+					livros.add(livro);
+				}
+				rs.close();
+				stmt.close();
+				return livros;
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		
+		
 		public void excluir(long codLivro) {
 			String sql = "delete from tblivros where CodLivro = ?";
 			
