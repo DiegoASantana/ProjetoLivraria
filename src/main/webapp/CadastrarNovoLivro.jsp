@@ -16,6 +16,7 @@
 			<option value="Arquitetura">Arquitetura</option>
 			<option value="Design">Design</option>
 			<option value="Informatica">Informatica</option>
+			<option value="Literatura brasileira">Literatura brasileira</option>
 			<option value="Literatura universal">Literatura universal</option>
 			<option value="Musica e arte">Musica e arte</option>
 		</select><br>

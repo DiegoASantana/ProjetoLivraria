@@ -17,7 +17,7 @@ public class LivroDao {
 		}
 		
 		public void AdicionaLivro(Livro livro) {
-			String sql = "insert into tblivros (codlivro, titulo,autor,categoria,valor) values (?,?,?,?,?)";
+			String sql = "insert into tblivros (codlivro,titulo,autor,categoria,valor) values (?,?,?,?,?)";
 			
 			try {
 				PreparedStatement stmt = connection.prepareStatement(sql);
@@ -35,10 +35,12 @@ public class LivroDao {
 			}
 		}
 		
-		public List<Livro> getListaLivro(){
+		public List<Livro> getListaLivro(String categoria){
 			try {
 				List<Livro> livros = new ArrayList<Livro>();
-				PreparedStatement stmt = this.connection.prepareStatement("select * from tblivros");
+				PreparedStatement stmt = this.connection.prepareStatement("select * from tblivros where categoria like '"+categoria+"'");
+				
+				stmt.execute();
 				ResultSet rs = stmt.executeQuery();
 				
 				while (rs.next()) {
@@ -53,6 +55,21 @@ public class LivroDao {
 				rs.close();
 				stmt.close();
 				return livros;
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		public void excluir(long codLivro) {
+			String sql = "delete from tblivros where CodLivro = ?";
+			
+			try {
+				PreparedStatement stmt = connection.prepareStatement(sql);
+				// setar os valores
+				stmt.setLong(1,codLivro);
+				//executa
+				stmt.execute();
+				stmt.close();
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			}

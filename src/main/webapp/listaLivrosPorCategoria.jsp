@@ -14,9 +14,10 @@
 			<option>Selecione uma Categoria</option>
 			<option value="Arquitetura">Arquitetura</option>
 			<option value="Design">Design</option>
-			<option value="Informática">Informática</option>
+			<option value="Informatica">Informática</option>
+			<option value="Literatura brasileira">Literatura brasileira</option>
 			<option value="Literatura universal">Literatura universal</option>
-			<option value="Música e arte">Musica e arte</option>
+			<option value="Musica e arte">Musica e arte</option>
 		</select>
 		<input type="submit" name="listar">
 	</form>
