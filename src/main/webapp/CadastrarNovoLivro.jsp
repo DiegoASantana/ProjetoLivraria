@@ -13,12 +13,11 @@
 	Autor:<input type="text" name="autor"><br>
 	Categoria:<select name="Wcategoria">
 			<option></option>
-			<option>Arquitetura</option>
-			<option>Design</option>
-			<option>Informática</option>
-			<option>Literatura universal</option>
-			<option>Música e arte</option>
-			<option>Terror</option>
+			<option value="Arquitetura">Arquitetura</option>
+			<option value="Design">Design</option>
+			<option value="Informatica">Informatica</option>
+			<option value="Literatura universal">Literatura universal</option>
+			<option value="Musica e arte">Musica e arte</option>
 		</select><br>
 	Valor:<input type="text" name="valor"><br>
 	<input type="submit" value="Cadastrar">

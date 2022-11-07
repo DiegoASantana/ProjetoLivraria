@@ -11,7 +11,6 @@ public class ConnectionFactory {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			return DriverManager.getConnection(
 				"jdbc:mysql://localhost/bdlivraria?useTimezone=true&serverTimezone=UTC","root","151819");
-			//?useTimezone=true&serverTimezone=UTC
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
